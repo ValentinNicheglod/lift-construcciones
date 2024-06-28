@@ -1,0 +1,131 @@
+---
+import { Image } from "astro:assets";
+import MissionIcon from "../../assets/icons/mission.png";
+import CommitmentIcon from "../../assets/icons/commitment.png";
+import TeamIcon from "../../assets/icons/team.png";
+
+import About_2 from "../../assets/images/About_2.jpg";
+import About_1 from "../../assets/images/About_1.jpg";
+import About_3 from "../../assets/images/About_3.jpg";
+import About_4 from "../../assets/images/About_4.jpg";
+import About_5 from "../../assets/images/About_5.jpg";
+
+import IconHeader from "../shared/IconHeader.astro";
+---
+<section
+  class="flex items-center p-6 lg:p-12 2xl:container 2xl:mx-auto w-full"
+>
+  <div class="flex flex-col-reverse md:flex-row gap-4">
+    <div class="grid gap-4 md:w-1/2">
+      <div class="flex flex-col p-4 gap-4 rounded-lg lift-border bg-lift-light">
+        <h2>Sobre Nosotros</h2>
+        <span class="text-pretty">
+          En <b>Lift Construcciones</b>, nos dedicamos a construir sueños desde
+          2005. <br />
+          <span>
+            Con una amplia experiencia y cientos de proyectos exitosos, somos
+            líderes en la industria de la construcción.
+          </span>
+        </span>
+      </div>
+
+      <div class="flex flex-col p-4 gap-4 rounded-lg lift-border bg-lift-light">
+        <IconHeader
+          title="Nuestro Compromiso"
+          image={CommitmentIcon}
+          alt="Compromiso"
+        />
+        <span class="text-pretty">
+          Nos comprometemos a ofrecer resultados excepcionales, basados en
+          valores de calidad y satisfacción del cliente en cada proyecto.
+        </span>
+      </div>
+
+      <div class="flex flex-col p-4 gap-4 rounded-lg lift-border bg-lift-light">
+        <IconHeader title="Nuestra Misión" image={MissionIcon} alt="Misión" />
+        <span class="text-pretty">
+          Nuestra misión va más allá de construir edificios, buscamos inspirar y
+          enriquecer comunidades mediante proyectos innovadores y de calidad.
+        </span>
+      </div>
+
+      <div class="flex flex-col p-4 gap-4 rounded-lg lift-border bg-lift-light">
+        <IconHeader title="Nuestro Equipo" image={TeamIcon} alt="Equipo" />
+        <span class="text-pretty">
+          Equipo de profesionales apasionados y dedicados, expertos en todas las
+          áreas de la construcción y comprometidos con el éxito de cada
+          proyecto.
+        </span>
+      </div>
+    </div>
+    <div class="md:w-1/2">
+      <div
+        class="images grid grid-cols-6 grid-rows-4 md:grid-rows-6 gap-2 sm:gap-4 h-full"
+      >
+        <Image
+          class="image image-1 rounded-lg lift-border object-cover"
+          src={About_1}
+          alt="Edificio con el cielo de fondo"
+        />
+        <Image
+          class="image image-2 rounded-lg lift-border object-cover"
+          src={About_2}
+          alt="Edificio con el cielo de fondo"
+        />
+        <Image
+          class="image image-3 rounded-lg lift-border object-cover"
+          src={About_3}
+          alt="Edificio con el cielo de fondo"
+        />
+        <Image
+          class="image image-4 rounded-lg lift-border object-cover"
+          src={About_4}
+          alt="Edificio con el cielo de fondo"
+        />
+        <Image
+          class="image image-5 rounded-lg lift-border object-cover"
+          src={About_5}
+          alt="Edificio con el cielo de fondo"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  .images {
+    max-height: 50rem;
+  }
+
+  .image {
+    object-fit: cover;
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+  }
+
+  .image-1 {
+    grid-area: 1 / 1 / 5 / 4;
+  }
+  .image-2 {
+    grid-area: 1 / 4 / 3 / 7;
+  }
+  .image-3 {
+    grid-area: 3 / 4 / 5 / 7;
+  }
+  .image-4 {
+    grid-area: 5 / 1 / 7 / 5;
+  }
+  .image-5 {
+    grid-area: 5 / 5 / 7 / 7;
+  }
+
+  @media screen and (width <= 768px) {
+    .images {
+      max-height: 500px;
+    }
+
+    .image-4,
+    .image-5 {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,114 @@
+---
+import ServiceCard from "../ServiceCard.astro";
+import IconHeader from "../shared/IconHeader.astro";
+
+import BuildingIcon from "../../assets/icons/building.png";
+import HouseIcon from "../../assets/icons/house.png";
+import BusinessIcon from "../../assets/icons/business.png";
+
+import BuildingImage from "../../assets/images/services/Building.jpg";
+import HouseImage from "../../assets/images/services/House.jpg";
+import CommercialImage from "../../assets/images/services/Commercial.jpg";
+
+import { Image } from "astro:assets";
+---
+<section class="grid gap-6 xl:gap-12 pt-6 pb-4 lg:py-12 bg-lift-light overflow-x-hidden">
+  <div class="flex flex-col gap-2 px-6 lg:px-12 2xl:container 2xl:m-auto">
+    <h2 id="services-title">Servicios de Construcción...</h2>
+    <span class="text-pretty">
+      Desde el diseño hasta la entrega, cubrimos todas tus necesidades.
+    </span>
+  </div>
+  <div class="flex items-center overflow-x-auto 2xl:container 2xl:mx-auto">
+    <div id="card-container" class="grid grid-cols-3 sm:grid-rows-3 sm:grid-cols-1 lg:grid-cols-3 lg:grid-rows-1 lg:w-full gap-4 px-6 lg:px-12 pb-4">
+      <ServiceCard>
+        <Image src={BuildingImage} alt="" slot="image" />
+        <IconHeader
+        slot="header"
+        image={BuildingIcon}
+        title="Construcción Edilicia"
+        alt="Ilustración de edificios"
+        />
+        <span slot="description" class="text-base lg:text-sm xl:text-base text-pretty">
+          Especializados en la construcción de edificios multifamiliares,
+          comerciales e institucionales.<br />
+          Desde la planificación hasta la finalización del proyecto, nos comprometemos
+          a entregar estructuras duraderas, funcionales y estéticamente impresionantes
+          para que superen tus expectativas y la de los demás.
+        </span>
+      </ServiceCard>
+      <ServiceCard>
+        <Image src={HouseImage} alt="" slot="image" />
+        <IconHeader
+        slot="header"
+        image={HouseIcon}
+        title="Construcción Residencial"
+        alt="Ilustración de una casa"
+        />
+        <span slot="description" class="text-base lg:text-sm xl:text-base text-pretty">
+          Desde acogedoras casas familiares hasta lujosas residencias, nos
+          especializamos en la construcción de hogares que se adaptan a tu estilo
+          de vida. Nuestro enfoque meticuloso en la calidad y la atención al
+          detalle garantiza que tu casa sea no solo hermosa, sino también duradera
+          y funcional para ti y tu familia.
+        </span>
+      </ServiceCard>
+      <ServiceCard>
+        <Image src={CommercialImage} alt="" slot="image" />
+        <IconHeader
+        slot="header"
+        image={BusinessIcon}
+        title="Construcción Comercial"
+        alt="Ilustración de la fachada de una tienda"
+        />
+        <span slot="description" class="text-base lg:text-sm xl:text-base text-pretty">
+          Ya sea que estés buscando construir un espacio de oficinas, una tienda
+          minorista o un complejo comercial, nuestro equipo tiene la experiencia y
+          la capacidad para hacerlo realidad. Nos enfocamos en la eficiencia y la
+          rentabilidad, entregando proyectos comerciales de alta calidad que
+          impulsan el éxito de tu negocio.
+        </span>
+      </ServiceCard>
+    </div>
+  </div>
+</section>
+<style>
+    section {
+      grid-template-rows: min-content 1fr;
+    }
+
+    img {
+        width: 100%;
+        height: 40%;
+    }
+
+    @media screen and (width < 640px) {
+      #card-container {
+        grid-template-columns: repeat(3, 25rem);
+      }
+    }
+    
+    @media screen and (width >= 640px) and (width < 1024px) {
+      img {
+        width: 30%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+</style>
+<script>
+  function updateHeading() {
+    const heading = document.getElementById('services-title');
+
+    if (!heading) return;
+    
+    if (window.innerWidth < 640) {
+      heading.textContent = 'Nuestros Servicios...';
+    } else {
+      heading.textContent = 'Servicios de Construcción...';
+    }
+  }
+
+  window.addEventListener('resize', updateHeading);
+  window.addEventListener('load', updateHeading);
+</script>

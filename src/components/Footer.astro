@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../../public/Logo.svg?raw";
+
+import FacebookLogo from "../assets/icons/social/Facebook.svg";
+import InstagramLogo from "../assets/icons/social/Instagram.svg";
+import LinkedInLogo from "../assets/icons/social/LinkedIn.svg";
+import YoutubeLogo from "../assets/icons/social/Youtube.svg";
+---
+<footer class="grid gap-6 md:gap-12 bg-white py-12 px-4 border-t-lift-blue border-t-4">
+  <div class="grid place-items-start md:place-items-center gap-6">
+    <Fragment class="w-25 md:w-35" set:html={Logo} />
+    <span class="md:text-center text-pretty">
+      <b>Lift Construcciones</b> es una empresa no existente utilizada solo para fines <br>
+      de desarrollo y diseño, los proyectos mostrados en esta web y sus respectivas <br>
+      fotografías fueron obtenidos de la página de arquitectura <b>Arch Daily</b>.
+    </span>
+  </div>
+  <div class="flex md:justify-center gap-2 md:gap-6">
+    <button class="social-button rounded-full active:shadow-sm scale-90 md:scale-100">
+        <Image src={FacebookLogo} alt="Logo de Facebook" />
+    </button>
+    <button class="social-button rounded-full active:shadow-sm scale-90 md:scale-100">
+        <Image src={InstagramLogo} alt="Logo de Instagram" />
+    </button>
+    <button class="social-button rounded-full active:shadow-sm scale-90 md:scale-100">
+        <Image src={LinkedInLogo} alt="Logo de LinkedIn" />
+    </button>
+    <button class="social-button rounded-full active:shadow-sm scale-90 md:scale-100">
+        <Image src={YoutubeLogo} alt="Logo de Youtube" />
+    </button>
+  </div>
+</footer>
+<style>
+    .social-button {
+        border: 1px solid hsl(218, 11%, 81%);
+        transition: .3s;
+    }
+
+    .social-button:hover {
+        background-color: hsl(218, 11%, 91%);
+    }
+
+    .social-button:active {
+        background-color: hsl(218, 11%, 81%);
+    }
+
+    @media screen and (width <= 768px) {	
+      br {
+        display: none;
+      }
+	  }
+    
+</style>

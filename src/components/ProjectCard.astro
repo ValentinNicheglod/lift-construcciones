@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+
+import LocationIcon from "../assets/vectors/location.svg";
+import ArchitectsIcon from "../assets/vectors/architects.svg";
+import YearIcon from "../assets/vectors/year.svg";
+import AreaIcon from "../assets/vectors/area.svg";
+import YearIconWhite from "../assets/vectors/white/year.svg";
+import AreaIconWhite from "../assets/vectors/white/area.svg";
+import Button from "./Button.astro";
+
+interface Props {
+  location: string;
+  architects: string;
+  year: string;
+  area: string;
+}
+
+const { location, architects, year, area } = Astro.props;
+---
+
+<div class="relative block sm:flex lift-card bg-white shadow-lg md:max-h-80 lg:max-h-none">
+  <slot name="image" />
+  <div class="md:hidden grid gap-1 absolute top-2 left-2">
+    <div class="flex items-center gap-1 p-1 rounded-md bg-[#00000050] backdrop-blur-sm">
+      <Image src={YearIconWhite} alt="Icono de un calendario" class="icon"/>
+      <span class="text-white font-medium text-sm">{year}</span>
+    </div>
+    <div class="flex items-center gap-1 p-1 rounded-md bg-[#00000050] backdrop-blur-sm">
+      <div style="color: red;">
+        <Image src={AreaIconWhite} alt="Icono de una regla" class="icon"/>
+      </div>
+      <span class="text-white font-medium text-sm">
+        {area}m<sup>2</sup>
+      </span>
+    </div>
+  </div>
+  <div class="flex flex-col justify-between p-4">
+    <div class="flex flex-col gap-4 sm:gap-6">
+      <div class="flex flex-col gap-1 sm:gap-2">
+        <slot name="title" />
+        <slot name="subtitle" />
+      </div>
+      <div class="flex flex-col gap-1 sm:gap-2">
+        <div class="flex items-center gap-1">
+          <Image src={LocationIcon} alt="Icono de un pin de ubicación" class="icon"/>
+          <span class="text-indigo-600 font-semibold">Ubicación: </span>
+          <span class="truncate">{location}</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <Image src={ArchitectsIcon} alt="Icono de un grupo de personas" class="icon"/>
+          <span class="text-indigo-600 font-semibold">Arquitectos: </span>
+          <span class="truncate">{architects}</span>
+        </div>
+        <div class="hidden md:flex items-center gap-1">
+          <Image src={YearIcon} alt="Icono de un calendario" class="icon"/>
+          <span class="text-indigo-600 font-semibold">Año: </span>
+          <span>{year}</span>
+        </div>
+        <div class="hidden md:flex items-center gap-1">
+          <Image src={AreaIcon} alt="Icono de una regla" class="icon"/>
+          <span class="text-indigo-600 font-semibold">Área: </span>
+          <span>
+            {area}m<sup>2</sup>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="button-container mt-6">
+      <Button text="Ver detalles del proyecto">
+        <div class="inline text-2xl" slot="icon">+&nbsp;</div>
+      </Button>
+    </div>
+  </div>
+</div>
+<style>
+  @media screen and (width < 640px) {
+    .button-container {
+      display: none;
+    }
+
+    .icon {
+      width: 20px;
+    }
+  }
+
+    /* @media screen and (width >= 640px) {
+      h2::after {
+        content: 'Servicios de Construcción...';
+      }
+    }
+    
+    @media screen and (width >= 640px) and (width < 1024px) {
+      img {
+        width: 30%;
+        height: 100%;
+        object-fit: cover;
+      }
+    } */
+</style>

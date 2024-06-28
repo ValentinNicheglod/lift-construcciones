@@ -1,0 +1,264 @@
+---
+import { Image } from "astro:assets";
+
+import IconHeader from "../shared/IconHeader.astro";
+import OfficeIcon from "../../assets/icons/office.png";
+import ContactIcon from "../../assets/icons/contact.png";
+
+import UserIcon from "../../assets/vectors/user.svg";
+import MailIcon from "../../assets/vectors/mail.svg";
+import PhoneIcon from "../../assets/vectors/phone.svg";
+
+import China_Flag from "../../assets/icons/flags/CHINA.png";
+import UAE_Flag from "../../assets/icons/flags/UAE.png";
+import UK_Flag from "../../assets/icons/flags/UK.png";
+import USA_Flag from "../../assets/icons/flags/USA.png";
+import Button from "../Button.astro";
+import Circles from "../Circles.astro";
+
+import OfficesImage from "../../assets/images/offices.jpg";
+import ContactImage from "../../assets/images/contact.jpeg";
+---
+<section
+  class="relative grid justify-center overflow-hidden bg-lift-light gap-6 lg:gap-12 p-6 lg:p-12 xl:pb-24"
+>
+  <div class="flex flex-col z-10 gap-2">
+    <h2 id="contact-title" class="text-center">
+      ¡Ponte en contacto con nosotros!
+    </h2>
+    <span class="text-center">
+      Estamos aquí para ayudarte en tu próximo proyecto.
+    </span>
+  </div>
+  <div
+    class="w-full z-10 mb-auto grid grid-rows-2 lg:grid-cols-2 lg:grid-rows-none justify-center gap-4"
+  >
+    <div class="flex lift-card bg-white h-full">
+      <Image
+        src={OfficesImage}
+        alt=""
+        class="w-[40%] object-cover object-left hidden sm:block lg:hidden"
+      />
+      <div class="flex flex-col justify-between gap-6 p-4">
+        <div class="flex flex-col gap-2">
+          <IconHeader
+            image={OfficeIcon}
+            title="Oficinas Internacionales"
+            alt="Ilustración de un complejo de oficinas"
+          />
+          <span class="text-pretty">
+            Contamos con presencia internacional gracias a nuestras oficinas
+            ubicadas en locaciones estratégicas.
+          </span>
+        </div>
+        <div class="grid grid-rows-2 grid-cols-2 gap-2">
+          <div class="location-card grid gap-2 rounded-md p-2">
+            <div class="flex gap-2">
+              <Image
+                src={China_Flag}
+                alt="Bandera de China"
+                class="w-6 h-6 flag"
+                loading="eager"
+              />
+              <h5 class="font-medium">Shangai, China.</h5>
+            </div>
+            <div class="text-sm sm:text-base">
+              <span>123 Nanjing East Road</span>
+              <br />
+              <span>+86 21 5555 1234</span>
+            </div>
+          </div>
+          <div class="location-card grid gap-2 rounded-md p-2">
+            <div class="flex gap-2">
+              <Image
+                src={UAE_Flag}
+                alt="Bandera de los Emiratos Arabes Unidos"
+                class="w-6 h-6 flag"
+                loading="eager"
+              />
+              <h5 class="font-medium">Dubai, UAE.</h5>
+            </div>
+            <div class="text-sm sm:text-base">
+              <span>101 Sheikh Zayed Road</span>
+              <br />
+              <span>+971 4 3333 4567</span>
+            </div>
+          </div>
+          <div class="location-card grid gap-2 rounded-md p-2">
+            <div class="flex gap-2">
+              <Image
+                src={UK_Flag}
+                alt="Bandera del Reino Unido"
+                class="w-6 h-6 flag"
+                loading="eager"
+              />
+              <h5 class="font-medium">London, UK.</h5>
+            </div>
+            <div class="text-sm sm:text-base">
+              <span>456 Oxford Street</span>
+              <br />
+              <span>+44 20 7777 5678</span>
+            </div>
+          </div>
+          <div class="location-card grid gap-2 rounded-md p-2">
+            <div class="flex gap-2">
+              <Image
+                src={USA_Flag}
+                alt="Bandera de China"
+                class="w-6 h-6 flag"
+                loading="eager"
+              />
+              <h5 class="font-medium">New York, USA.</h5>
+            </div>
+            <div class="text-sm sm:text-base">
+              <span>789 Park Avenue</span>
+              <br />
+              <span>+1 212 555 7890</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex lift-card bg-white h-full">
+      <Image
+        src={ContactImage}
+        alt=""
+        class="w-[40%] object-cover hidden sm:block lg:hidden"
+      />
+      <div class="flex flex-col justify-between gap-6 p-4">
+        <div class="flex flex-col gap-2">
+          <IconHeader
+            image={ContactIcon}
+            title="Formulario de Contacto"
+            alt="Ilustración de una persona de atención al cliente"
+          />
+          <span class="text-pretty">
+            Completa el formulario de contacto y nuestro equipo de ventas se
+            comunicará contigo.
+          </span>
+        </div>
+        <form class="grid gap-2">
+          <div class="relative">
+            <Image
+              src={UserIcon}
+              aria-hidden
+              alt=""
+              class="absolute z-10 w-10"
+            />
+            <input type="text" class="input pl-10" placeholder="Nombre" />
+          </div>
+          <div class="grid grid-rows-2 xs:grid-cols-2 xs:grid-rows-1 gap-2">
+            <div class="relative">
+              <Image
+                src={MailIcon}
+                aria-hidden
+                alt=""
+                class="absolute z-10 w-10"
+              />
+              <input
+                type="text"
+                class="input pl-10"
+                placeholder="Correo electrónico"
+              />
+            </div>
+            <div class="relative">
+              <Image
+                src={PhoneIcon}
+                aria-hidden
+                alt=""
+                class="absolute z-10 w-10"
+              />
+              <input type="text" class="input pl-10" placeholder="Teléfono" />
+            </div>
+          </div>
+          <textarea placeholder="Mensaje" class="input no-resize" rows="6"
+          ></textarea>
+          <div></div>
+          <div class="flex justify-between items-center">
+            <Button text="Enviar solicitud" />
+            <span class="text-slate-400">Jamas enviaremos spam</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="absolute circle-container-1">
+    <Circles />
+  </div>
+  <div class="absolute circle-container-2">
+    <Circles />
+  </div>
+</section>
+<style>
+  .circle-container-1 {
+    width: 100vw;
+    height: 100vw;
+    top: -50vw;
+    left: 50vw;
+  }
+
+  .circle-container-2 {
+    width: 100vw;
+    height: 100vw;
+    bottom: -50vw;
+    right: 50vw;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: hsl(216, 14%, 54%);
+  }
+
+  .location-card {
+    border: 1px solid var(--gray-border);
+  }
+
+  .no-resize {
+    resize: none;
+    height: calc(1.5em * 6);
+    overflow: hidden;
+    line-height: 1.5em;
+  }
+
+  .lift-card {
+    width: clamp(250px, 28rem, 600px);
+  }
+
+  @media screen and (width < 640px) {
+    .circle-container-1 {
+      width: 150vw;
+      height: 150vw;
+      top: -75vw;
+      left: 25vw;
+    }
+
+    .circle-container-2 {
+      width: 150vw;
+      height: 150vw;
+      bottom: -75vw;
+      right: 25vw;
+    }
+  }
+
+  @media screen and (width < 1024px) {
+    .lift-card {
+      width: auto;
+    }
+  }
+</style>
+<script>
+  function updateHeading() {
+    const heading = document.getElementById("contact-title");
+
+    if (!heading) return;
+
+    if (window.innerWidth < 640) {
+      heading.textContent = "¡Contactanos!";
+    } else {
+      heading.textContent = "¡Ponte en contacto con nosotros!";
+    }
+  }
+
+  window.addEventListener("resize", updateHeading);
+  window.addEventListener("load", updateHeading);
+</script>

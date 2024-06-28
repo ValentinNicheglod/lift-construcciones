@@ -1,0 +1,114 @@
+---
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Lift Construcciones es una empresa de construcción líder en proyectos residenciales y comerciales. Con años de experiencia, ofrecemos servicios de alta calidad.">
+		<meta name="keywords" content="empresa de construcción, construcción residencial, construcción comercial, proyectos de construcción, servicios de construcción">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="../../bulma.min.css">
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+		<Footer />
+	</body>
+</html>
+<style is:global lang="scss">
+	@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500..900&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400..700&display=swap');
+
+	:root {
+		--blue: hsl(211, 100%, 50%);
+		--dark: hsl(223, 16%, 9%);
+		--text-color: hsl(216, 14%, 34%);
+		--bg-color: hsl(210, 100%, 98%);
+		--gray-border: hsl(218, 11%, 81%);
+		--blue-border: hsl(210, 100%, 88%);
+	}
+
+	body {
+		overflow: hidden;
+	}
+
+	button:focus {
+		outline: hsl(211, 100%, 70%) auto 1px;
+	}
+	
+	span, button, input, textarea {
+		font-family: "Red Hat Text", sans-serif !important;
+	}
+
+	h1, h2, h3, h4, h5 {
+		font-family: "Red Hat Display", sans-serif !important;
+		font-weight: 700;
+		color: hsl(223, 16%, 9%);
+
+		b {
+			font-weight: 900;
+		}
+	}
+
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 2.5rem;
+	}
+
+	h3 {
+		font-size: 2rem;
+	}
+
+	h4 {
+		font-size: 1.5rem;
+	}
+
+	span {
+		color: var(--text-color);
+	}
+
+	/* section:not(:first-of-type) {
+		height: clamp(768px, 100vh, 1280px);
+	} */
+
+	.lift-border {
+		border: 1px solid var(--blue-border);
+	}
+
+	.lift-card {
+		border: 1px solid var(--blue-border);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	@media screen and (width > 1536px) {
+		html {
+			font-size: 20px;
+    	}
+	}
+	@media screen and (width < 768px) {
+		html {
+			font-size: 14px;
+    	}
+	}
+	@media screen and (width < 480px) {
+		html {
+			font-size: 12px;
+		}
+	}
+
+</style>

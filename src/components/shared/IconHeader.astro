@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  image: ImageMetadata;
+  alt: string;
+}
+
+const { title, image, alt } = Astro.props;
+---
+
+<div class="flex lg:grid xl:flex items-center gap-4">
+  <Image src={image} alt={alt} class="w-10 lg:w-8 xl:w-10" />
+  <h4 class="lg:text-xl xl:text-2xl">{title}</h4>
+</div>

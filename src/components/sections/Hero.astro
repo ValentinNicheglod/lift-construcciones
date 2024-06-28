@@ -1,0 +1,46 @@
+---
+import Logo from '../../../public/Logo_White.svg?raw';
+---
+<section class="flex items-center h-screen">
+	<div class="grid gap-8 px-12">
+		<!-- <Image src={WorldIcon} alt="Icono del mundo" class="w-20" /> -->
+		<Fragment class="w-80" set:html={Logo} />
+		<h1 class="text-white font-medium">
+			Diseñando y <br>
+			construyendo<br>
+			<b class="text-white">tu mundo</b>
+		</h1>
+		<span class="text-white font-medium text-xl opacity-80">
+			Expertos en construcción
+			<br>
+			residencial y comercial.
+		</span>
+	</div>
+</section>
+<style>
+	section {
+		background-image: url(../../assets/images/hero/HeroImageMobile.png);
+		background-size: cover;
+	}
+
+	@media screen and (min-width: 480px) {
+		section {
+			background-image: url(../../assets/images/hero/HeroImageMobile.png);
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		section {
+			background-image: url(../../assets/images/hero/HeroImageTablet.png);
+		}
+	}
+
+	@media screen and (min-width: 992px) {
+		section {
+			background-image: url(../../assets/images/hero/HeroImage.png);
+		}
+	}
+
+	@media screen and (min-width: 1280px) {}
+
+</style>

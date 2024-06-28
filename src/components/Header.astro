@@ -1,0 +1,28 @@
+---
+import Logo from '../../public/Logo.svg?raw';
+---
+
+<header class="flex justify-between absolute bg-white px-12 w-full">
+	<Fragment class="w-32" set:html={Logo} />
+	<nav class="flex items-center gap-2">
+		<button class="button is-white is-rounded">Nosotros</button>
+		<button class="button is-white is-rounded">Servicios</button>
+		<button class="button is-white is-rounded">Proyectos</button>
+		<button id="primary" class="button is-rounded bg-lift-blue hover:bg-blue-600 active:bg-blue-700">Contacto</button>
+	</nav>
+</header>
+<style>
+	#primary {
+		color: white;
+	}
+
+	@media screen and (max-width: 768px) {
+		header {
+			justify-content: center;
+		}
+
+		nav {
+			display: none;
+		}
+	}
+</style>
