@@ -5,7 +5,7 @@ interface Props {
 
 const { text } = Astro.props;
 ---
-<button class="flex items-center w-fit px-4 py-1 rounded-md bg-lift-blue text-white font-semibold hover:bg-blue-600 active:bg-blue-700 active:shadow-md transition-all">
+<button disabled class="flex items-center w-fit px-4 py-1 rounded-md bg-lift-blue text-white font-semibold hover:bg-blue-600 active:bg-blue-700 active:shadow-md transition-all">
     <slot name="icon"></slot>
     {text}
 </button>

@@ -16,7 +16,6 @@ const { title } = Astro.props;
 		<meta name="keywords" content="empresa de construcción, construcción residencial, construcción comercial, proyectos de construcción, servicios de construcción">
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/svg+xml" href="../../public/Logo.svg" />
-		<link rel="stylesheet" href="../../bulma.min.css">
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -29,7 +28,8 @@ const { title } = Astro.props;
 <style is:global lang="scss">
 	@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500..900&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400..700&display=swap');
-
+	@import url('../../public/styles/bulma.min.css');
+	
 	:root {
 		--blue: hsl(211, 100%, 50%);
 		--dark: hsl(223, 16%, 9%);
